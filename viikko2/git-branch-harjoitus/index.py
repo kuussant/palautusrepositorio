@@ -12,6 +12,7 @@ print(f"{summa(x, y)}")
 print(f"{erotus(x, y)}")
 
 logger("lopetetaan ohjelma")
+
 <<<<<<< HEAD
 =======
 # tehdään alussa importit
