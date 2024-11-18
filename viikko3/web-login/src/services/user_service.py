@@ -39,9 +39,9 @@ class UserService:
 
     def validate(self, username, password, password_confirmation):
         chars = string.ascii_lowercase
+        
         username_ok = True
         password_ok = True
-        
         password_chars_ok = False
         password_other_ok = False
         
@@ -64,6 +64,9 @@ class UserService:
                 password_chars_ok = True
             else:
                 password_other_ok = True
+
+        if not password_chars_ok or not password_other_ok:
+            password_ok = False
         
         if not username_ok and password_ok:
             raise UserInputError("Username is invalid")
@@ -71,10 +74,10 @@ class UserService:
         if username_ok and not password_ok:
             raise UserInputError("Password is invalid")
         
-        if username_ok and password_ok and password_chars_ok and password_other_ok:
+        if username_ok and password_ok:
             if password != password_confirmation:
                 raise UserInputError("Password and password confirmation don't match")
-        
+
         if self._user_repository.find_by_username(username):
             raise UserInputError("Username already exists")
         
