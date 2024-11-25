@@ -2,4 +2,4 @@
 https://github.com/kuussant/ohtuvarasto \
 https://github.com/kuussant/webcounter
 
-test 1
+test 2
